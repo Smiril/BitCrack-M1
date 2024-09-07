@@ -18,7 +18,7 @@ else
 endif
 
 LDFLAGS=
-CXXFLAGS+=-std=c++17 -m64 -mssse3 -D_REETRANT -W -Wall -Wextra -pedantic -pthread
+CXXFLAGS+=-std=c++17 -mssse3 -D_REETRANT -W -Wall -Wextra -pedantic -pthread
 
 # Coverage variables
 ifeq ($(BUILD_COVERAGE),1)
@@ -28,13 +28,13 @@ endif
 
 ifeq ($(PLATFORM),Darwin)
     CXX=clang++
-    CXXFLAGS+=-arch x86_64 -cl-mad-enable
+    CXXFLAGS+=-L/usr/lib -cl-mad-enable
 else
 ifeq ($(CXX),clang++)
-    CXXFLAGS+=-arch x86_64 -cl-mad-enable
+    CXXFLAGS+=-L/usr/lib -cl-mad-enable
 else
     CXX=g++
-    CXXFLAGS+=-march=x86-64 -fgcse-sm
+    CXXFLAGS+=-L/usr/lib -fgcse-sm
 endif
 endif
 
@@ -66,7 +66,7 @@ ifeq ($(BUILD_CUDA),1)
 endif
 
 ifeq ($(BUILD_OPENCL),1)
-	TARGETS:=${TARGETS} dir_embedcl dir_clutil dir_clKeySearchDevice dir_clunittest
+	TARGETS:=${TARGETS} dir_embedcl dir_clutil dir_keyfinder dir_clunittest
 	CXXFLAGS:=${CXXFLAGS}  -DCL_TARGET_OPENCL_VERSION=${OPENCL_VERSION} -DCL_HPP_MINIMUM_OPENCL_VERSION=${OPENCL_VERSION} -DCL_HPP_TARGET_OPENCL_VERSION=${OPENCL_VERSION}
 endif
 
