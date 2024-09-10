@@ -208,6 +208,7 @@ _pkginfo.txt
 ClientBin/
 ~$*
 *~
+*.dynlib
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
