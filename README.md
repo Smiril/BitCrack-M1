@@ -1,6 +1,6 @@
 # BitCrack  (macOS unified App)
 
-Multi-Platform cracking tool. works on all Operating Systems.
+Multi-Platform cracking tool. works on all OSX Operating Systems.
 
 ## Code Quality
 
