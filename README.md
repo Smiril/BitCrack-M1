@@ -4,7 +4,7 @@ Multi-Plateform cracking tool. works on all Operating Systems.
 
 ## Code Quality
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/57cbb61099d64b1d8c3c20f75aaf0f92)](https://www.codacy.com/gh/Maroc-OS/CleanedBitCrack/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Maroc-OS/CleanedBitCrack&amp;utm_campaign=Badge_Grade) [![CodeFactor](https://www.codefactor.io/repository/github/maroc-os/cleanedbitcrack/badge)](https://www.codefactor.io/repository/github/maroc-os/cleanedbitcrack) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/Smiril/CleanedBitCrack.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Maroc-OS/CleanedBitCrack/context:cpp)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/57cbb61099d64b1d8c3c20f75aaf0f92)](https://www.codacy.com/gh/Smiril/CleanedBitCrack/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Smiril/CleanedBitCrack&amp;utm_campaign=Badge_Grade) [![CodeFactor](https://www.codefactor.io/repository/github/Smiril/CleanedBitCrack/badge)](https://www.codefactor.io/repository/github/Smiril/CleanedBitCrack) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/Smiril/CleanedBitCrack.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Smiril/CleanedBitCrack/context:cpp)
 
 ## Note
 
