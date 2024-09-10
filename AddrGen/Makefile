@@ -22,9 +22,9 @@ SIGNING_IDENTITY="Apple Development: sonar@gmx.com (XXXXXXXXXX)"
 endif
 
 ifeq ($(UNAME),Darwin)
-.PHONY: all sign0 sign1 sign2 install uninstall clean version
+.PHONY: all sign0 sign1 sign2 install uninstall clean
 
-all: x86_app sign0 arm_app sign1 universal_app sign2 version
+all: x86_app sign0 arm_app sign1 universal_app sign2 
 
 x86_app: ${CPPSRC}
 	${CXX} -o addrgen-x86_64.bin ${CPPSRC} ${INCLUDE} -I${CUDA_INCLUDE} ${CXXFLAGS} ${LIBS} -laddressutil -lsecp256k1 -lcryptoutil -lsecp256k1 -lcommonutils -lcmdparse -target x86_64-apple-macos10.12
