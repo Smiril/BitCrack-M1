@@ -1,4 +1,4 @@
-# BitCrack  (macOS Compatible)
+# BitCrack  (macOS unified App)
 
 Multi-Plateform cracking tool. works on all Operating Systems.
 
