@@ -14,6 +14,15 @@ This version has been modified and partially fixed by me (Smiril) except for mos
 
 A tool for brute-forcing Bitcoin private keys. The main purpose of this project is to contribute to the effort of solving the [Bitcoin puzzle transaction](https://blockchain.info/tx/08389f34c98c606322740c0be6a7125d9860bb8d5cb182c02f98461e5fa6cd15): A transaction with 32 addresses that become increasingly difficult to crack.
 
+   <br />
+    <a href="https://github.com/Smiril/project_pandora"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Smiril/project_pandora/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/Smiril/project_pandora/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <br><br>
+
 ## Using BitCrack
 
 ### Usage
