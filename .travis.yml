@@ -6,22 +6,6 @@ cache:
 
 jobs:
   include:
-    - os: linux
-      dist: focal
-      addons:
-        apt:
-          sources:
-            - sourceline: 'ppa:ubuntu-toolchain-r/test'
-            - ppa:llvm-toolchain-focal-10
-          packages:
-            - clang-10
-            - ocl-icd-opencl-dev
-            - opencl-headers
-            - lcov
-            - ccache
-      env:
-        - COMPILER=clang++-10
-
     - os: osx
       osx_image: xcode12.5
       addons:
