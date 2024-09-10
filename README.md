@@ -2,13 +2,9 @@
 
 Multi-Plateform cracking tool. works on all Operating Systems.
 
-## Build Status
-
-[![Build Status](https://travis-ci.com/Maroc-OS/CleanedBitCrack.svg?branch=master)](https://travis-ci.com/Maroc-OS/CleanedBitCrack) [![Build status](https://ci.appveyor.com/api/projects/status/r6chsmy618smn3on?svg=true)](https://ci.appveyor.com/project/Maroc-OS/cleanedbitcrack) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Maroc-OS/CleanedBitCrack.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Maroc-OS/CleanedBitCrack/alerts/)
-
 ## Code Quality
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/57cbb61099d64b1d8c3c20f75aaf0f92)](https://www.codacy.com/gh/Maroc-OS/CleanedBitCrack/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Maroc-OS/CleanedBitCrack&amp;utm_campaign=Badge_Grade) [![CodeFactor](https://www.codefactor.io/repository/github/maroc-os/cleanedbitcrack/badge)](https://www.codefactor.io/repository/github/maroc-os/cleanedbitcrack) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/Maroc-OS/CleanedBitCrack.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Maroc-OS/CleanedBitCrack/context:cpp)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/57cbb61099d64b1d8c3c20f75aaf0f92)](https://www.codacy.com/gh/Maroc-OS/CleanedBitCrack/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Maroc-OS/CleanedBitCrack&amp;utm_campaign=Badge_Grade) [![CodeFactor](https://www.codefactor.io/repository/github/maroc-os/cleanedbitcrack/badge)](https://www.codefactor.io/repository/github/maroc-os/cleanedbitcrack) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/Smiril/CleanedBitCrack.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Maroc-OS/CleanedBitCrack/context:cpp)
 
 ## Note
 
