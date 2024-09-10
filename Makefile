@@ -92,6 +92,7 @@ ifeq ($(BUILD_DEBUG),1)
 	CXXFLAGS:=${CXXFLAGS} -Wconversion
 endif
 
+export CODER
 export PLATFORM
 export INCLUDE
 export LIBDIR
