@@ -4,7 +4,7 @@ Multi-Platform cracking tool. works on all OSX Operating Systems.
 
 ## Code Quality
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/57cbb61099d64b1d8c3c20f75aaf0f92)](https://www.codacy.com/gh/Smiril/CleanedBitCrack/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Smiril/CleanedBitCrack&amp;utm_campaign=Badge_Grade) [![CodeFactor](https://www.codefactor.io/repository/github/Smiril/cleanedbitcrack/badge)](https://www.codefactor.io/repository/github/Smiril/CleanedBitCrack) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/Smiril/cleanedbitcrack.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Smiril/CleanedBitCrack/context:cpp)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/57cbb61099d64b1d8c3c20f75aaf0f92)](https://www.codacy.com/gh/Smiril/CleanedBitCrack/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Smiril/CleanedBitCrack&amp;utm_campaign=Badge_Grade) 
 
 ## Note
 
