@@ -29,7 +29,7 @@ $(error "! Your Operating System ($(UNAME)) is not supported by this Makefile")
 endif
 
 ifeq ($(UNAME),Darwin)
-SIGNING_IDENTITY="Apple Development: sonar@gmx.com (XXXXXXXXXX)"
+SIGNING_IDENTITY=$(CODER)
 endif
 
 ifeq ($(UNAME),Darwin)
