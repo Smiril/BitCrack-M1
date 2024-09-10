@@ -23,9 +23,9 @@ SIGNING_IDENTITY="Apple Development: sonar@gmx.com (XXXXXXXXXX)"
 endif
 
 ifeq ($(UNAME),Darwin)
-.PHONY: all sign0 sign1 sign2 install uninstall clean version
+.PHONY: all sign0 sign1 sign2 install uninstall clean
 
-all: x86_app sign0 arm_app sign1 universal_app sign2 version
+all: x86_app sign0 arm_app sign1 universal_app sign2
 
 x86_app: $(SRC}
 	for file in ${SRC} ; do\
