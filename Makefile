@@ -1,6 +1,24 @@
 
 CUR_DIR=$(shell pwd)
-PLATFORM=$(shell uname -s)
+##
+## Detect Operating System
+##
+
+UNAME                   := $(shell uname -s)
+
+# we need to strip the windows version number to be able to build enigma on cygwin hosts
+UNAME                   := $(patsubst CYGWIN_NT-%,CYGWIN,$(UNAME))
+
+# same for msys
+UNAME                   := $(patsubst MSYS_NT-%,MSYS2,$(UNAME))
+UNAME                   := $(patsubst MINGW32_NT-%,MSYS2,$(UNAME))
+UNAME                   := $(patsubst MINGW64_NT-%,MSYS2,$(UNAME))
+
+ifeq (,$(filter $(UNAME),Linux Darwin CYGWIN MSYS2))
+$(error "! Your Operating System ($(UNAME)) is not supported by this Makefile")
+endif
+
+PLATFORM=$(UNAME)
 CODER="Apple Development: sonar@gmx.com (XXXXXXXXXX)"
 DIRS=Logger CommonUtils CmdParse CryptoUtil clUtil embedcl secp256k1lib AddressUtil KeyFinderLib CLKeySearchDevice CudaKeySearchDevice cudaMath cudaUtil
 
