@@ -1,29 +1,12 @@
 NAME=clutil
 SRC=$(wildcard *.cpp)
 OBJS=$(SRC:.cpp=.o)
-##
-## Detect Operating System
-##
 
-UNAME                   := $(shell uname -s)
-
-# we need to strip the windows version number to be able to build enigma on cygwin hosts
-UNAME                   := $(patsubst CYGWIN_NT-%,CYGWIN,$(UNAME))
-
-# same for msys
-UNAME                   := $(patsubst MSYS_NT-%,MSYS2,$(UNAME))
-UNAME                   := $(patsubst MINGW32_NT-%,MSYS2,$(UNAME))
-UNAME                   := $(patsubst MINGW64_NT-%,MSYS2,$(UNAME))
-
-ifeq (,$(filter $(UNAME),Linux Darwin CYGWIN MSYS2))
-$(error "! Your Operating System ($(UNAME)) is not supported by this Makefile")
-endif
-
-ifeq ($(UNAME),Darwin)
+ifeq ($(PLATFORM),Darwin)
 SIGNING_IDENTITY=$(CODER)
 endif
 
-ifeq ($(UNAME),Darwin)
+ifeq ($(PLATFORM),Darwin)
 .PHONY: all sign0 sign1 sign2 install uninstall clean
 
 all: x86_app sign0 arm_app sign1 universal_app sign2
@@ -46,7 +29,7 @@ universal_app: ${LIBDIR}/lib$(NAME)-x86_64.dylib ${LIBDIR}/lib$(NAME)-arm64.dyli
 	lipo -create -output ${LIBDIR}/lib$(NAME).dylib ${LIBDIR}/lib$(NAME)-x86_64.dylib ${LIBDIR}/lib$(NAME)-arm64.dylib
 endif
 
-ifeq ($(UNAME),Darwin)
+ifeq ($(PLATFORM),Darwin)
 sign0:
 	export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/../bin/codesign_allocate
 	xcrun codesign -f -s $(SIGNING_IDENTITY) --preserve-metadata=identifier,entitlements --timestamp=none ${LIBDIR}/lib$(NAME)-x86_64.dylib
