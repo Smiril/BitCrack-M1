@@ -10,26 +10,74 @@ CXXFLAGS := $(INCLUDE) -I$(OPENCL_INCLUDE) $(CXXFLAGS) $(LOADLIBS) -Wl,--start-g
 $(TARGETLIB): $(LIBSRC)
 
 TARGETS = $(TARGETLIB)
+##
+## Detect Operating System
+##
 
-.PHONEY:
+UNAME                   := $(shell uname -s)
+
+# we need to strip the windows version number to be able to build enigma on cygwin hosts
+UNAME                   := $(patsubst CYGWIN_NT-%,CYGWIN,$(UNAME))
+
+# same for msys
+UNAME                   := $(patsubst MSYS_NT-%,MSYS2,$(UNAME))
+UNAME                   := $(patsubst MINGW32_NT-%,MSYS2,$(UNAME))
+UNAME                   := $(patsubst MINGW64_NT-%,MSYS2,$(UNAME))
+
+ifeq (,$(filter $(UNAME),Linux Darwin CYGWIN MSYS2))
+$(error "! Your Operating System ($(UNAME)) is not supported by this Makefile")
+endif
+
+ifeq ($(UNAME),Darwin)
+SIGNING_IDENTITY="Apple Development: sonar@gmx.com (XXXXXXXXXX)"
+endif
+
+ifeq ($(UNAME),Darwin)
+.PHONY: all sign0 sign1 sign2 install uninstall clean
+
+all: bitcrack_cl.cpp x86_app sign0 arm_app sign1 universal_app sign2 
+
 bitcrack_cl.cpp:
 	rm -rf bitcrack.cl
 	rm -rf bitcrack_cl.cpp
 	cat ../clMath/sha256.cl ../clMath/secp256k1.cl ../clMath/ripemd160.cl bloomfilter.cl bitcoin.cl keysearch.cl > bitcrack.cl
 	$(BINDIR)/embedcl bitcrack.cl bitcrack_cl.cpp _bitcrack_cl
 
-all:	$(LIBSRC)
+x86_app: $(LIBSRC)
 	for file in $(LIBSRC); do\
 		$(CXX) $(CXXFLAGS) -c $$file;\
 	done
 
 $(TARGETS): $(LIBOBJ)
 	mkdir -p $(LIBDIR)
-ifeq ($(PLATFORM),Darwin)
-	$(CXX)$(LDFLAGS) $(LOADLIBS) $(OPENCL_LIB) -llogger -lcommonutils -lsecp256k1 -lcryptoutil -laddressutil -lclutil -lkeyfinder -dynamiclib -undefined suppress -flat_namespace $(LIBOBJ) -o $(LIBDIR)/lib$(NAME).dylib
-else
-	ar rcvs $(LIBDIR)/$(TARGETLIB) $(LIBOBJ)
-	ranlib $(LIBDIR)/$(TARGETLIB)
+	$(CXX)$(LDFLAGS) $(LOADLIBS) $(OPENCL_LIB) -llogger -lcommonutils -lsecp256k1 -lcryptoutil -laddressutil -lclutil -lkeyfinder -dynamiclib -undefined suppress -flat_namespace $(LIBOBJ) -o $(LIBDIR)/lib$(NAME)-x86_64.dylib -target x86_64-apple-macos10.12
+
+arm_app: $(LIBSRC)
+	for file in $(LIBSRC); do\
+		$(CXX) $(CXXFLAGS) -c $$file;\
+	done
+
+$(TARGETS): $(LIBOBJ)
+	mkdir -p $(LIBDIR)
+	$(CXX)$(LDFLAGS) $(LOADLIBS) $(OPENCL_LIB) -llogger -lcommonutils -lsecp256k1 -lcryptoutil -laddressutil -lclutil -lkeyfinder -dynamiclib -undefined suppress -flat_namespace $(LIBOBJ) -o $(LIBDIR)/lib$(NAME)-arm64.dylib -target arm64-apple-macos11
+
+universal_app: $(LIBDIR)/lib$(NAME)-x86_64.dylib $(LIBDIR)/lib$(NAME)-arm64.dylib
+	lipo -create -output $(LIBDIR)/lib$(NAME).dylib $(LIBDIR)/lib$(NAME)-x86_64.dylib $(LIBDIR)/lib$(NAME)-arm64.dylib
+endif
+
+ifeq ($(UNAME),Darwin)
+sign0:
+	export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/../bin/codesign_allocate
+	xcrun codesign -f -s $(SIGNING_IDENTITY) --preserve-metadata=identifier,entitlements --timestamp=none $(LIBDIR)/lib$(NAME)-x86_64.dylib
+	
+sign1:
+	export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/../bin/codesign_allocate
+	xcrun codesign -f -s $(SIGNING_IDENTITY) --preserve-metadata=identifier,entitlements --timestamp=none $(LIBDIR)/lib$(NAME)-arm64.dylib
+	
+sign2:
+	export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/../bin/codesign_allocate
+	xcrun codesign -f -s $(SIGNING_IDENTITY) --preserve-metadata=identifier,entitlements --timestamp=none $(LIBDIR)/lib$(NAME).dylib
+	
 endif
 
 clean:
