@@ -1,6 +1,6 @@
 # BitCrack  (macOS unified App)
 
-Multi-Plateform cracking tool. works on all Operating Systems.
+Multi-Platform cracking tool. works on all Operating Systems.
 
 ## Code Quality
 
@@ -8,7 +8,7 @@ Multi-Plateform cracking tool. works on all Operating Systems.
 
 ## Note
 
-This version has been modified and partially fixed by me (Maroc-OS @MerrukTechnolog) except for most of CUDA files they are not tested (Fixed), only OpenCL has been tested. the main goal is to fix maximum possible issues, style, security and performance. then make it a pool style compatible tool.
+This version has been modified and partially fixed by me (Smiril) except for most of CUDA files they are not tested (Fixed), only OpenCL has been tested. the main goal is to fix maximum possible issues, style, security and performance. then make it a pool style compatible tool.
 
 ## Description
 
@@ -161,24 +161,11 @@ kernel to run longer, but more keys will be processed.
 
 ### Build dependencies
 
-Visual Studio 2019 (if on Windows)
-
 For CUDA: CUDA Toolkit 10.1
 
 For OpenCL: An OpenCL SDK (The CUDA toolkit contains an OpenCL SDK).
 
-### Building in Windows
-
-Open the Visual Studio solution.
-
-Build the `clKeyFinder` project for an OpenCL build.
-
-Build the `cuKeyFinder` project for a CUDA build.
-
-Note: By default the NVIDIA OpenCL headers are used. You can set the header and library path for
-OpenCL in the `BitCrack.props` property sheet.
-
-### Building in macOS & Linux
+### Building in macOS
 
 Using `make`:
 
@@ -215,13 +202,6 @@ make BUILD_DEBUG=1
 ## Supporting this project
 
 If you find this project useful and would like to support it, consider making a donation. Your support is greatly appreciated!
-
-**BTC**: `1LqJ9cHPKxPXDRia4tteTJdLXnisnfHsof`
-
-**LTC**: `LfwqkJY7YDYQWqgR26cg2T1F38YyojD67J`
-
-**ETH**: `0xd28082CD48E1B279425346E8f6C651C45A9023c5`
-
 ### Contact
 
-Send any questions or comments to bitcrack.project@gmail.com
+Send any questions or comments to sonar@gmx.com
