@@ -1,7 +1,7 @@
 
 CUR_DIR=$(shell pwd)
 PLATFORM=$(shell uname -s)
-
+CODER="Apple Development: sonar@gmx.com (XXXXXXXXXX)"
 DIRS=Logger CommonUtils CmdParse CryptoUtil clUtil embedcl secp256k1lib AddressUtil KeyFinderLib CLKeySearchDevice CudaKeySearchDevice cudaMath cudaUtil
 
 INCLUDE = $(foreach d, $(DIRS), -I$(CUR_DIR)/$d)
