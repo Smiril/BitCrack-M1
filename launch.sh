@@ -1,1 +1,1 @@
-./bin/clBitCrack --keyspace 80000000:FFFFFFFF -i ../../Downloads/btcaddresses1.txt --continue continue.txt  -o found.txt --stride 1 -b 64 -t 64 -p 32000 -d 0 --compression both 
+./bin/clBitCrack -d 0 --keyspace 00000000000000000000000000000000000000000000000000000000000001:EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364140 -o res.txt  -i "btcaddresses.txt"    --out "found.txt" -b 64 -t 64 -p 32000  --stride 5 --compression both --continue "continue.txt"
